@@ -1,0 +1,160 @@
+﻿@model HomeViewModel
+
+<section id="banner" class="text-center">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6 section-one">
+                <h1>@Model.banner.Title</h1>
+                <p>
+                    @Model.banner.Title''
+                </p>
+                <a href="@Model.banner.ButtonLink" class="btn btn-light">@Model.banner.ButtonText</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="about">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-12 col-md-6 section-two mb-5 mb-md-0">
+                <span>@Model.aboutSection.Title</span>
+                <h2>@Model.aboutSection.SubTitle</h2>
+                <p>
+                    @Model.aboutSection.Text
+                </p>
+                <a href="@Model.aboutSection.ButtonLink" class="mybtn mybtn-light">@Model.aboutSection.ButtonText</a>
+            </div>
+            <div class="col-12 col-md-6 image">
+                <img src="~/img/@Model.aboutSection.Image" alt="Group-1">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section-three">
+    <div class="container">
+        <div class="row justify-content-around align-items-center">
+            @foreach (Service item in Model.services)
+            {
+<div class="col-12 col-md-4">
+    <img src="~/img/@item.Image" alt="service_01">
+    <h4>@item.Title</h4>
+    <p>@item.Text</p>
+</div>}
+        </div>
+    </div>
+</section>
+<section class="video-section">
+    <div class="video-wrapper">
+        <a href="@Model.bigScreen.Link" target="_top">
+            <i class="bi bi-play-circle icon-item"></i>
+        </a>
+    </div>
+    <div class="container">
+        <div class="counter-up">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 col-sm-6 col-12 py-md-0 py-3 text">
+                        <div class="counter fs-1" style="color:#eebc1e ;" data-target="354">
+                        </div>
+                        <div class="text">Customers</div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12 py-md-0 py-3  text">
+                        <div class="counter fs-1" style="color:#4ccaa3;" data-target="234">
+                        </div>
+                        <div class="text">Branch</div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12 py-md-0 py-3 text">
+                        <div class="counter fs-1" style="color: #FC7052;" data-target="90">
+                        </div>
+                        <div class="text">Clients</div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12 py-md-0 py-3 text">
+                        <div class="counter fs-1" style="color: #3e89d0;" data-target="245">
+                        </div>
+                        <div class="text">Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section-five-id">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-12 col-md-6">
+                <img src="~/img/@Model.startSection.Image" alt="mexa2">
+            </div>
+            <div class="col-12 col-md-6 section-five">
+                <span>@Model.startSection.Title</span>
+                <h2>@Model.startSection.SubTitle</h2>
+                <p>
+                    @Model.startSection.Text
+                </p>
+                <a href="@Model.startSection.ButtonLink" class="mybtn mybtn-light">@Model.startSection.ButtonText</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="image-area" class="text-center">
+    <div class="works">
+        <div class="container">
+            <div class="row g-4">
+                <span class="image-area-span">@Model.latestWork.Title</span>
+                <h3 class="mb-5 fs-1 fw-bold">@Model.latestWork.SubTitle</h3>
+                @foreach (LatestWorkImage item in Model.latestWorkImages)
+                {
+    <div class="col-md-4 col-12 col-sm-6">
+        <img src="./~/img/@item.Image" alt="">
+    </div>}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="pricing" class="text-center">
+    <div class="container">
+        <h2 class="pricing-h2 pb-3">Pricing</h2>
+        <div class="row justify-content-evenly align-items-center">
+            <div class="col-12 col-md-5 text-center text-md-end mb-md-0 mb-3">
+                <h3 class="fw-bolder dollar">@Model.pricing.Price</h3>
+                <h6 class="opacity-75">@Model.pricing.PriceText</h6>
+            </div>
+            <div class="line d-none d-md-flex"></div>
+            <div class="col-md-5 text-md-start text-center col-12">
+                <h2>@Model.pricing.FreeMonth</h2>
+                <i class="bi bi-check"></i>
+                <span>@Model.pricing.FreeMonthText1</span> <br>
+                <i class="bi bi-check"></i>
+                <span>@Model.pricing.FreeMonthText2</span>
+            </div>
+        </div>
+        <div class="mt-5">
+            <a href="@Model.pricing.ButtonLink" class="chat mb-3">@Model.pricing.ButtonText</a>
+            <p class="opacity-75" style="font-size: 13px;">(@Model.pricing.Hint)</p>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="row read-more">
+            <div class="blog">
+                <span>BLOG</span>
+                <h2>Our Latest News</h2><br>
+            </div>
+            @foreach (Blog item in Model.blogs)
+            {
+                <div class="col-md-6 col-lg-4 col-12">
+                    <img src="~/img/@item.NewsImage" class="read-img" alt="image"><br><br>
+                    <h3>@item.NewsTitle</h3>
+                    <p class="read-more-p">@item.NewsText</p>
+                    <a href="/post/index/@item.Id">Read More »</a>
+                </div>
+                            }
+
+        </div>
+    </div>
+</section>

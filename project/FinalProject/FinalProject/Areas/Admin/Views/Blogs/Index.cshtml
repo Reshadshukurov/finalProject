@@ -1,0 +1,91 @@
+﻿@model IEnumerable<FinalProject.Models.Blog>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NewsTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NewsText)
+                </td>
+                <td>
+                    <img src="~/img/@Html.DisplayFor(modelItem => item.NewsImage)" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostText)
+                </td>
+                <td>
+                    <img src="~/img/@Html.DisplayFor(modelItem => item.PostImage)" width="100" />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@for (int i = 1; i <= ViewBag.Count; i++)
+{
+    if (i == ViewBag.CurrentPage)
+    {
+        <a href="/admin/blogs/index?page=@i" class="btn btn-secondary disabled">@i</a>
+    }
+    else
+    {
+        <a href="/admin/blogs/index?page=@i" class="btn btn-success">@i</a>
+    }
+
+}

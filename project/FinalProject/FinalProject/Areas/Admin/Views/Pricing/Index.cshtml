@@ -1,0 +1,72 @@
+﻿@model IEnumerable<FinalProject.Models.Pricing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeMonthText1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeMonthText2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ButtonText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ButtonLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hint)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FreeMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FreeMonthText1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FreeMonthText2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ButtonText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ButtonLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hint)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
